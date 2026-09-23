@@ -3,7 +3,7 @@ window.INVITE_CONFIG = {
   badgeText: "💌 想要邀請你跟我出去玩",
   mainTitle: "欸！我正在做的時候，你就傳 IG 給我了😤",
   inviteMessage: `既然都被妳破梗了，我還是要做一個給你～
-10/30（五）或是 10/31（六）可以留點時間給我嗎？
+9/28 或是 10/30 可以留點時間給我嗎？
 想跟妳一起出去走走、散散心 因為你接下來要上班了 壓力一定很大吧!`,
   sceneText: "行程準備中：舒服、坐在咖啡廳放鬆也很可以",
   yesButtonText: "沒問題！❤️",
@@ -11,9 +11,17 @@ window.INVITE_CONFIG = {
   noButtonTeaseText: "真的不要？😗",
   successTitle: "耶！約定好了喔！",
   successMessage: "我來規畫一下行程，到時候見 🥰",
-  lineButtonText: "一鍵用 LINE 傳給你",
-  hintText: "如果 LINE 沒有自動打開，可以點上面的按鈕送出預填訊息。",
-  lineMessage: "我答應你的約會啦！10/30 或 10/31 見！🥰",
+  discordMessageTemplate: "有人答應你的約會啦！她選：{date} 🥰",
+  notificationPendingText: "正在把回覆送到 Discord...",
+  notificationSuccessText: "已經把回覆送到 Discord 了 💌",
+  notificationFailText: "通知可能沒有送成功，你可以先截圖留著給我看 🥺",
+  dateModalTitle: "那妳想選哪一天呢？",
+  dateModalMessage: "選一個時間，我就開始安排舒服的小行程。",
+  dateOptions: [
+    { label: "9/28", value: "9/28" },
+    { label: "10/30", value: "10/30" },
+    { label: "兩天都可以", value: "9/28 和 10/30 都可以" }
+  ],
   celebrationIcons: ["❤️", "💕", "✨", "💗", "🌸", "🥰"],
   runaway: {
     yesScaleStep: 0.26,
@@ -39,6 +47,7 @@ window.INVITE_CONFIG = {
     }
   },
   notification: {
+    discordWebhookUrl: "https://discord.com/api/webhooks/1552325017016991975/2Wr1hUSc008aBKOEWDQPQmDAFLXglAAyDfdkCjkkgkuHBFnMEc8hzxuZT1Mg_JdEm-MD",
     formspreeEndpoint: "",
     emailJs: {
       enabled: false,

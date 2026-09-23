@@ -218,8 +218,7 @@ h1 {
   grid-template-columns: 1fr;
 }
 
-button,
-a.line-link {
+button {
   min-height: 60px;
   border: 0;
   border-radius: 20px;
@@ -349,29 +348,22 @@ a.line-link {
   font-size: 1.1rem;
   line-height: 1.7;
   font-weight: 750;
+  white-space: pre-line;
 }
 
-.line-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 58px;
-  padding: 0 18px;
-  text-decoration: none;
-  background: #06c755;
-  color: #fff;
-  box-shadow: 0 12px 24px rgba(6, 199, 85, 0.28);
-}
-
-.hint {
+.notification-status {
   margin: 12px 0 0;
-  color: #8b6a62;
-  font-size: 0.88rem;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: #fff1c8;
+  color: #79574f;
+  font-size: 0.94rem;
   line-height: 1.5;
+  font-weight: 800;
 }
 
-.plead-modal {
+.plead-modal,
+.date-modal {
   position: fixed;
   inset: 0;
   z-index: 15;
@@ -384,12 +376,14 @@ a.line-link {
   transition: opacity 180ms ease, visibility 180ms ease;
 }
 
-.plead-modal.show {
+.plead-modal.show,
+.date-modal.show {
   opacity: 1;
   visibility: visible;
 }
 
-.plead-card {
+.plead-card,
+.date-card {
   width: min(100%, 360px);
   padding: 28px 20px 20px;
   border-radius: 28px;
@@ -401,23 +395,27 @@ a.line-link {
   transition: transform 180ms ease;
 }
 
-.plead-modal.show .plead-card {
+.plead-modal.show .plead-card,
+.date-modal.show .date-card {
   transform: translateY(0) scale(1);
 }
 
-.plead-icon {
+.plead-icon,
+.date-icon {
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 10px;
 }
 
-.plead-title {
+.plead-title,
+.date-title {
   margin: 0 0 10px;
   font-size: 1.65rem;
   line-height: 1.18;
 }
 
-.plead-message {
+.plead-message,
+.date-message {
   margin: 0 0 20px;
   color: #6f5048;
   font-size: 1.08rem;
@@ -426,7 +424,13 @@ a.line-link {
   white-space: pre-line;
 }
 
-.plead-close {
+.date-options {
+  display: grid;
+  gap: 10px;
+}
+
+.plead-close,
+.date-option {
   width: 100%;
   min-height: 54px;
   border: 0;

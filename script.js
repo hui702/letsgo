@@ -1,17 +1,21 @@
 const config = window.INVITE_CONFIG;
-const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(config.lineMessage)}`;
 
 const yesBtn = document.querySelector("#yesBtn");
 const noBtn = document.querySelector("#noBtn");
 const actions = document.querySelector(".actions");
 const celebration = document.querySelector("#celebration");
-const lineLink = document.querySelector("#lineLink");
+const successMessage = document.querySelector(".success-message");
+const notificationStatus = document.querySelector("#notificationStatus");
 const pleadModal = document.querySelector("#pleadModal");
 const pleadTitle = document.querySelector("#pleadTitle");
 const pleadMessage = document.querySelector("#pleadMessage");
 const pleadClose = document.querySelector("#pleadClose");
+const dateModal = document.querySelector("#dateModal");
+const dateOptions = document.querySelector("#dateOptions");
 let runawayCount = 0;
 let accepted = false;
+let selectedDate = "";
+let currentDiscordMessage = config.discordMessageTemplate.replace("{date}", "9/28 或 10/30");
 let noButtonDetached = false;
 let ignoreNextClick = false;
 let lastRunawayAt = 0;
@@ -26,7 +30,20 @@ function applyContent() {
     element.textContent = config[key] || "";
   });
 
-  lineLink.href = lineUrl;
+  renderDateOptions();
+}
+
+function renderDateOptions() {
+  dateOptions.innerHTML = "";
+
+  config.dateOptions.forEach((option) => {
+    const button = document.createElement("button");
+    button.className = "date-option";
+    button.type = "button";
+    button.textContent = option.label;
+    button.addEventListener("click", () => finishAcceptInvite(option.value));
+    dateOptions.appendChild(button);
+  });
 }
 
 function resizeYesButton() {
@@ -150,13 +167,38 @@ function celebrate() {
 }
 
 async function sendBackgroundNotification() {
+  if (config.notification.discordWebhookUrl) {
+    const payload = {
+      content: currentDiscordMessage,
+      embeds: [
+        {
+          title: "約會邀請回覆",
+          color: 16744576,
+          fields: [
+            { name: "選擇日期", value: selectedDate, inline: true },
+            { name: "回覆時間", value: new Date().toLocaleString("zh-TW"), inline: true }
+          ]
+        }
+      ]
+    };
+    const formData = new FormData();
+    formData.append("payload_json", JSON.stringify(payload));
+
+    await fetch(config.notification.discordWebhookUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    });
+  }
+
   if (config.notification.formspreeEndpoint) {
     await fetch(config.notification.formspreeEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         reply: "accepted",
-        message: config.lineMessage,
+        selectedDate,
+        message: currentDiscordMessage,
         date: new Date().toISOString()
       })
     });
@@ -173,7 +215,7 @@ async function sendBackgroundNotification() {
       await emailjs.send(
         config.notification.emailJs.serviceId,
         config.notification.emailJs.templateId,
-        { message: config.lineMessage, reply: "accepted" }
+        { message: currentDiscordMessage, selectedDate, reply: "accepted" }
       );
     }
   */
@@ -181,14 +223,32 @@ async function sendBackgroundNotification() {
 
 function acceptInvite() {
   if (accepted) return;
+  dateModal.classList.add("show");
+  dateModal.setAttribute("aria-hidden", "false");
+  dateOptions.querySelector("button")?.focus();
+}
+
+function finishAcceptInvite(dateValue) {
+  if (accepted) return;
+
   accepted = true;
+  selectedDate = dateValue;
+  currentDiscordMessage = config.discordMessageTemplate.replace("{date}", selectedDate);
+  successMessage.textContent = `${config.successMessage}\n你選的是：${selectedDate}`;
+  notificationStatus.textContent = config.notificationPendingText;
+  dateModal.classList.remove("show");
+  dateModal.setAttribute("aria-hidden", "true");
 
   celebration.classList.add("show");
   celebration.setAttribute("aria-hidden", "false");
   celebrate();
-  sendBackgroundNotification().catch(() => {});
-
-  window.open(lineUrl, "_blank", "noopener");
+  sendBackgroundNotification()
+    .then(() => {
+      notificationStatus.textContent = config.notificationSuccessText;
+    })
+    .catch(() => {
+      notificationStatus.textContent = config.notificationFailText;
+    });
 }
 
 applyContent();

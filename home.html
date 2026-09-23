@@ -40,8 +40,7 @@
       <div class="big-heart" aria-hidden="true"></div>
       <h2 class="success-title" data-content="successTitle"></h2>
       <p class="success-message" data-content="successMessage"></p>
-      <a class="line-link" id="lineLink" href="#" target="_blank" rel="noopener" data-content="lineButtonText"></a>
-      <p class="hint" data-content="hintText"></p>
+      <p class="notification-status" id="notificationStatus" data-content="notificationPendingText"></p>
     </div>
   </section>
 
@@ -51,6 +50,15 @@
       <h2 class="plead-title" id="pleadTitle"></h2>
       <p class="plead-message" id="pleadMessage"></p>
       <button class="plead-close" type="button" id="pleadClose"></button>
+    </div>
+  </section>
+
+  <section class="date-modal" id="dateModal" aria-hidden="true">
+    <div class="date-card" role="dialog" aria-modal="true" aria-labelledby="dateTitle">
+      <div class="date-icon" aria-hidden="true">📅</div>
+      <h2 class="date-title" id="dateTitle" data-content="dateModalTitle"></h2>
+      <p class="date-message" id="dateMessage" data-content="dateModalMessage"></p>
+      <div class="date-options" id="dateOptions"></div>
     </div>
   </section>
 
