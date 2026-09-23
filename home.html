@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>正式邀請妳</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="floating" aria-hidden="true">
+    <span class="floaty" style="--x: 7%; --s: 24px; --d: 11s; --delay: -1s;">♡</span>
+    <span class="floaty" style="--x: 18%; --s: 18px; --d: 13s; --delay: -6s;">✦</span>
+    <span class="floaty" style="--x: 31%; --s: 26px; --d: 15s; --delay: -3s;">❤</span>
+    <span class="floaty" style="--x: 52%; --s: 20px; --d: 12s; --delay: -8s;">✧</span>
+    <span class="floaty" style="--x: 68%; --s: 28px; --d: 14s; --delay: -4s;">♡</span>
+    <span class="floaty" style="--x: 84%; --s: 21px; --d: 10s; --delay: -2s;">❤</span>
+    <span class="floaty" style="--x: 93%; --s: 17px; --d: 16s; --delay: -9s;">✦</span>
+  </div>
+
+  <main>
+    <section class="invite-card" aria-labelledby="invite-title">
+      <div class="badge" data-content="badgeText"></div>
+      <h1 id="invite-title" data-content="mainTitle"></h1>
+      <p class="message" data-content="inviteMessage"></p>
+
+      <div class="mini-scene" aria-hidden="true">
+        <div class="car"></div>
+        <div class="scene-text" data-content="sceneText"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="actions" aria-label="回覆邀請">
+    <button class="yes-btn" type="button" id="yesBtn" data-content="yesButtonText"></button>
+    <button class="no-btn" type="button" id="noBtn" data-content="noButtonText"></button>
+  </div>
+
+  <section class="celebration" id="celebration" aria-live="polite" aria-hidden="true">
+    <div class="celebration-card">
+      <div class="big-heart" aria-hidden="true"></div>
+      <h2 class="success-title" data-content="successTitle"></h2>
+      <p class="success-message" data-content="successMessage"></p>
+      <a class="line-link" id="lineLink" href="#" target="_blank" rel="noopener" data-content="lineButtonText"></a>
+      <p class="hint" data-content="hintText"></p>
+    </div>
+  </section>
+
+  <section class="plead-modal" id="pleadModal" aria-hidden="true">
+    <div class="plead-card" role="dialog" aria-modal="true" aria-labelledby="pleadTitle">
+      <div class="plead-icon" aria-hidden="true">🥺</div>
+      <h2 class="plead-title" id="pleadTitle"></h2>
+      <p class="plead-message" id="pleadMessage"></p>
+      <button class="plead-close" type="button" id="pleadClose"></button>
+    </div>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
