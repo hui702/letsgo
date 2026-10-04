@@ -8,7 +8,8 @@
   <title>第一天的冒險</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;800&family=Press+Start+2P&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;800&family=Press+Start+2P&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -16,9 +17,9 @@
 <body>
   <main class="game-shell">
     <header class="masthead">
-        <div>
-          <p class="eyebrow" id="eyebrow">第一關</p>
-        </div>
+      <div>
+        <p class="eyebrow" id="eyebrow">第一關</p>
+      </div>
       <div class="score" aria-label="Score"><span id="scoreLabel">分數</span><strong id="score">000</strong></div>
     </header>
 
@@ -35,17 +36,17 @@
         </div>
       </div>
     </section>
-    </main>
+  </main>
 
-    <div class="modal-backdrop" id="introBackdrop">
-      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="introTitle">
-        <h2 id="introTitle">歡迎來到第一天的冒險！</h2>
-        <div class="intro-copy" id="introCopy"></div>
-        <button class="modal-button" id="introButton" type="button">我準備好了</button>
-      </section>
-    </div>
+  <div class="modal-backdrop" id="introBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+      <h2 id="introTitle">歡迎來到第一天的冒險！</h2>
+      <div class="intro-copy" id="introCopy"></div>
+      <button class="modal-button" id="introButton" type="button">我準備好了</button>
+    </section>
+  </div>
 
-    <div class="modal-backdrop" id="milestoneBackdrop" hidden>
+  <div class="modal-backdrop" id="milestoneBackdrop" hidden>
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="milestoneTitle">
       <h2 id="milestoneTitle">完成目標！</h2>
       <div class="stage-gallery" id="stageGallery" aria-label="Stage photo gallery" hidden>
@@ -53,9 +54,11 @@
           <img id="stagePhoto" alt="" />
         </div>
         <div class="stage-gallery-controls">
-          <button class="gallery-button" id="previousPhoto" type="button" aria-label="Previous photo" title="Previous photo">&#8249;</button>
+          <button class="gallery-button" id="previousPhoto" type="button" aria-label="Previous photo"
+            title="Previous photo">&#8249;</button>
           <span class="photo-count" id="photoCount" aria-live="polite">1 / 1</span>
-          <button class="gallery-button" id="nextPhoto" type="button" aria-label="Next photo" title="Next photo">&#8250;</button>
+          <button class="gallery-button" id="nextPhoto" type="button" aria-label="Next photo"
+            title="Next photo">&#8250;</button>
         </div>
       </div>
       <p class="note milestone-note" id="milestoneNote"></p>
@@ -74,13 +77,23 @@
           <img id="finalPhoto" alt="" />
         </div>
         <div class="stage-gallery-controls">
-          <button class="gallery-button" id="previousFinalPhoto" type="button" aria-label="Previous photo" title="Previous photo">&#8249;</button>
+          <button class="gallery-button" id="previousFinalPhoto" type="button" aria-label="Previous photo"
+            title="Previous photo">&#8249;</button>
           <span class="photo-count" id="finalPhotoCount" aria-live="polite">1 / 1</span>
-          <button class="gallery-button" id="nextFinalPhoto" type="button" aria-label="Next photo" title="Next photo">&#8250;</button>
+          <button class="gallery-button" id="nextFinalPhoto" type="button" aria-label="Next photo"
+            title="Next photo">&#8250;</button>
         </div>
       </div>
       <article class="letter" id="letter"></article>
       <button class="modal-button" id="restartButton" type="button">再玩一次</button>
+    </section>
+  </div>
+
+  <div class="modal-backdrop coupon-backdrop" id="couponBackdrop" hidden>
+    <section class="modal coupon-modal" role="dialog" aria-modal="true" aria-labelledby="couponTitle">
+      <h2 id="couponTitle">禮物兌換券</h2>
+      <div class="coupon-list" id="couponList"></div>
+      <button class="modal-button" id="couponButton" type="button">收下禮物</button>
     </section>
   </div>
 

@@ -57,6 +57,11 @@
           .join("");
         document.getElementById("introButton").textContent = GAME_CONTENT.intro.button;
       document.getElementById("victoryTitle").textContent = ui.victoryTitle;
+      document.getElementById("couponTitle").textContent = GAME_CONTENT.coupons.title;
+      document.getElementById("couponButton").textContent = GAME_CONTENT.coupons.button;
+      document.getElementById("couponList").innerHTML = GAME_CONTENT.coupons.items
+        .map(coupon => "<article class=\"coupon-item\"><h3>" + coupon.title + "</h3><p>" + coupon.detail + "</p></article>")
+        .join("");
     }
 
     function resize() {
@@ -287,6 +292,7 @@
         document.getElementById("letter").innerHTML = GAME_CONTENT.letter.map(text => "<p>" + text + "</p>").join("");
         showGallery("final", GAME_CONTENT.finalPhotos);
         document.getElementById("victoryBackdrop").hidden = false;
+        document.getElementById("couponBackdrop").hidden = false;
       }, 650);
     }
 
@@ -355,6 +361,7 @@
       scoreEl.textContent = "000";
       updateStageUI();
       document.getElementById("victoryBackdrop").hidden = true;
+      document.getElementById("couponBackdrop").hidden = true;
       begin();
     }
 
@@ -375,6 +382,9 @@
     });
     document.getElementById("avoidButton").addEventListener("click", moveAvoidButton);
     document.getElementById("restartButton").addEventListener("click", reset);
+    document.getElementById("couponButton").addEventListener("click", () => {
+      document.getElementById("couponBackdrop").hidden = true;
+    });
     bindGalleryControls("stage");
     bindGalleryControls("final");
     window.addEventListener("keydown", event => {

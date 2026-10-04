@@ -336,10 +336,50 @@ canvas {
   box-shadow: 1px 1px 0 var(--ink);
 }
 
-.photo-count {
-  font-size: 9px;
-  line-height: 1.4;
-}
+    .photo-count {
+      font-size: 9px;
+      line-height: 1.4;
+    }
+
+    .coupon-backdrop {
+      z-index: 5;
+    }
+
+    .coupon-modal {
+      width: min(100%, 390px);
+      padding: 24px 20px;
+    }
+
+    .coupon-list {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 22px;
+    }
+
+    .coupon-item {
+      border: 3px dashed var(--pink-deep);
+      padding: 16px 14px;
+      background: #fff;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      text-align: left;
+    }
+
+    .coupon-item h3,
+    .coupon-item p {
+      margin: 0;
+    }
+
+    .coupon-item h3 {
+      margin-bottom: 7px;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .coupon-item p {
+      font-size: 15px;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
 
 .letter {
   margin: 0 0 25px;

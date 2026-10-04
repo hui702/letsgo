@@ -97,10 +97,20 @@ const GAME_CONTENT = {
     { src: "photos/final/4-5.JPG", alt: "Final photo 5" }
   ],
 
+  // Gift coupon dialog shown before the restart button.
+  coupons: {
+    title: "禮物兌換券-要截圖喔",
+    button: "收下禮物",
+    items: [
+      { title: "晚餐兌換券", detail: "可兌換一頓好吃的晚餐" },
+      { title: "禮物兌換券", detail: "可兌換一份小禮物\n(但禮物還沒到可以換再跟你說)" }
+    ]
+  },
+
   // Each item becomes a paragraph on the final message screen.
   letter: [
     "最後想跟你說：",
     "到了新環境有壓力或被唸是難免的，但誰又不是從中得到經驗值得哩",
-    "所以希望妳在忙碌的日子裡，依然保有純真、可愛的自己，也要記住了：妳真的很棒唷！"
+    "所以願妳在忙碌的日子裡，依然保有純真、可愛的自己，也要記住了：妳真的很棒了！"
   ]
 };
