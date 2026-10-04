@@ -1,95 +1,106 @@
 "use strict";
 
-// 這是唯一需要修改文字、照片路徑與收集數量的設定檔。
+// Edit visible text, game targets, and gameplay pacing in this file.
 const GAME_CONTENT = {
-  // 開啟網頁時顯示的說明視窗。
+  // Opening dialog.
   intro: {
     title: "給你的小遊戲！",
     lines: [
-      "這是一個為妳準備的加油小遊戲，希望在上班前，能替妳帶來一點輕鬆和好心情。",
+      "知道你壓力很大，想要給你一個小驚喜，希望在上班前，能替妳帶來一點輕鬆和好心情。",
       "第一關試玩，玩法很簡單：在手機上左右拖曳籃子，接住每一關指定的物品。",
       "碰到毒藥會停止移動 1 秒。完成三個關卡後，最後有個精美小禮物!!"
     ],
     button: "可以開始囉"
   },
 
-  // 按鈕、標題與介面文字。
+  // Buttons, headings, and interface text.
   ui: {
     pageTitle: "放鬆小遊戲",
     eyebrow: "第一關",
     scoreLabel: "分數",
     startButton: "點擊開始",
     continueButton: "下一關",
-    finishButton: "查看祝福",
+    finishButton: "恭喜過關",
+    heartConfirmButton: "好我知道",
+    heartAvoidButton: "我才不要跟你說",
     restartButton: "再玩一次",
-    stageLabels: ["第一關：方塊", "第二關：十字架", "第三關：愛心"],
+    stageLabels: ["第一關", "第二關", "第三關"],
     victoryTitle: "冒險完成！",
-    missingPhoto: "請將照片放到："
   },
 
-  // 關卡依照遊戲順序排列。target 是該關需要收集的數量。
+  // Gameplay pacing.
+  gameplay: {
+    goalItemRate: 0.4,
+    fallingSpeed: {
+      minimum: 0.32,
+      randomRange: 0.20
+    },
+    hazardFreezeMs: 1000
+  },
+
+  // Stages are listed in gameplay order. target is the collection goal.
   stages: {
     square: {
       target: 3,
-      title: "方塊關卡完成！",
-      caption: "小試身手",
-      message: "恭喜你完成第一關囉!這樣會玩了齁還有兩關喔 加油加油。",
+      title: "關卡完成！",
+      message: "很開心可以在這邊遇到你，從教堂、營隊都看到了不一樣的你。\n\n從領訓跟小天使我也從你身上學到了很多，看照片也發現我們一起經歷了好多次的活動，真的很喜歡有你在的每個時間。",
       photos: [
-        { src: "photos/square/1-1.JPG", caption: "方塊回憶 01" },
-        { src: "photos/square/1-2.GIF", caption: "方塊回憶 02" },
-        { src: "photos/square/1-2.JPG", caption: "方塊回憶 03" },
-        { src: "photos/square/1-3.HEIC", fallback: "photos/square/1-5.jpeg", caption: "方塊回憶 04" },
-        { src: "photos/square/1-4.HEIC", fallback: "photos/square/1-6.jpeg", caption: "方塊回憶 05" },
-        { src: "photos/square/1-5.jpeg", caption: "方塊回憶 06" },
-        { src: "photos/square/1-6.jpeg", caption: "方塊回憶 07" },
-        { src: "photos/square/1-7.jpeg", caption: "方塊回憶 08" },
-        { src: "photos/square/1-8.JPG", caption: "方塊回憶 09" },
-        { src: "photos/square/1-10.PNG", caption: "方塊回憶 10" }
+        { src: "photos/square/1-1.JPG", alt: "Stage 1 photo 1" },
+        { src: "photos/square/1-10.PNG", alt: "Stage 1 photo 2" },
+        { src: "photos/square/1-2.JPG", alt: "Stage 1 photo 4" },
+        { src: "photos/square/1-3.HEIC", fallback: "photos/square/1-5.jpeg", alt: "Stage 1 photo 5" },
+        { src: "photos/square/1-4.HEIC", fallback: "photos/square/1-6.jpg", alt: "Stage 1 photo 6" },
+        { src: "photos/square/1-5.jpeg", alt: "Stage 1 photo 7" },
+        { src: "photos/square/1-6.jpg", alt: "Stage 1 photo 8" },
+        { src: "photos/square/1-7.jpeg", alt: "Stage 1 photo 9" },
+        { src: "photos/square/1-8.JPG", alt: "Stage 1 photo 10" },
+        { src: "photos/square/1-9.jpg", alt: "Stage 1 photo 11" }
       ]
     },
     cross: {
       target: 4,
-      title: "十字架關卡完成！",
-      caption: "勇氣補給",
-      message: "遇到不熟悉的事情也別怕，先深呼吸，一步一步來；妳一定能找到自己的節奏。",
+      title: "關卡完成！",
+      message: "很多時候，你都一個人默默承受\n\n大學的時間裡，也給了自己很多壓力；在服務中，也希望可以好好的把這裡的好傳承給\n底下的弟弟妹妹們。\n\n就算畢業、即將踏入職場，你心裡也想要成為他們的支柱\n\n說出了：\n「希望這裡不只是你的家　\n　也能成為他們的家。」",
       photos: [
-        { src: "photos/cross/2-1.JPG", caption: "十字回憶 01" },
-        { src: "photos/cross/2-2.JPG", caption: "十字回憶 02" },
-        { src: "photos/cross/2-3.JPG", caption: "十字回憶 03" },
-        { src: "photos/cross/2-4.JPG", caption: "十字回憶 04" },
-        { src: "photos/cross/2-5.JPG", caption: "十字回憶 05" },
-        { src: "photos/cross/2-6.JPG", caption: "十字回憶 06" },
-        { src: "photos/cross/2-7.JPG", caption: "十字回憶 07" },
-        { src: "photos/cross/2-8.jpeg", caption: "十字回憶 08" },
-        { src: "photos/cross/2-9.JPG", caption: "十字回憶 09" }
+        { src: "photos/cross/2-1.JPG", alt: "Stage 2 photo 1" },
+        { src: "photos/cross/2-2.HEIC", fallback: "photos/cross/2-3.JPG", alt: "Stage 2 photo 2" },
+        { src: "photos/cross/2-3.JPG", alt: "Stage 2 photo 3" },
+        { src: "photos/cross/2-4.JPG", alt: "Stage 2 photo 4" },
+        { src: "photos/cross/2-5.JPG", alt: "Stage 2 photo 5" },
+        { src: "photos/cross/2-6.JPG", alt: "Stage 2 photo 6" },
+        { src: "photos/cross/2-7.JPG", alt: "Stage 2 photo 7" },
+        { src: "photos/cross/2-8.jpeg", alt: "Stage 2 photo 8" },
+        { src: "photos/cross/2-9.JPG", alt: "Stage 2 photo 9" }
       ]
     },
     heart: {
       target: 5,
-      title: "愛心關卡完成！",
-      caption: "給努力的妳",
-      message: "三個關卡都完成了！不管今天順不順利，回頭看看，妳已經很認真地走過來了。",
+      title: "關卡完成！",
+      message: "明天是你的第一天上班，我相信你心裡一定壓力很大、不想去上班。\n但真的很多人都有跟我說妳真得很棒喔、你很優秀。\n\n希望小遊戲可以讓你好好放鬆、好好休息，帶著充足的\n勇氣迎接新的挑戰。\n\n也要記得，你已經不是一個人了!不開心、不順利、覺得委屈的時候，想講的話可以跟我說，\n讓我陪你一起面對、一起走過這些不愉快，好嗎?",
       photos: [
-        { src: "photos/love/3-1.jpg", caption: "愛心回憶 01" },
-        { src: "photos/love/3-2.jpg", caption: "愛心回憶 02" },
-        { src: "photos/love/3-3.JPG", caption: "愛心回憶 03" },
-        { src: "photos/love/3-4.HEIC", fallback: "photos/love/3-1.jpg", caption: "愛心回憶 04" },
-        { src: "photos/love/3-5.HEIC", fallback: "photos/love/3-2.jpg", caption: "愛心回憶 05" },
-        { src: "photos/love/3-6.HEIC", fallback: "photos/love/3-3.JPG", caption: "愛心回憶 06" }
+        { src: "photos/heart/3-1.jpg", alt: "Stage 3 photo 1" },
+        { src: "photos/heart/3-2.jpg", alt: "Stage 3 photo 2" },
+        { src: "photos/heart/3-3.JPG", alt: "Stage 3 photo 3" },
+        { src: "photos/heart/3-7.jpg", alt: "Stage 3 photo 4" },
+        { src: "photos/heart/3-8.jpg", alt: "Stage 3 photo 5" },
+        { src: "photos/heart/3-9.jpg", alt: "Stage 3 photo 6" }
       ]
     }
   },
 
-  // 最後祝福頁的照片牆。可放最多 10 張，不需要剛好填滿。
-  // HEIC 在部分瀏覽器無法顯示；這種照片請保留 fallback，指向 JPG、JPEG、PNG 或 GIF。
-  photos: {
-    gallery: []
-  },
+  // Photos shown above the final letter.
+  finalPhotos: [
+    { src: "photos/final/4-1.HEIC", fallback: "photos/final/4-2.JPG", alt: "Final photo 1" },
+    { src: "photos/final/4-2.JPG", alt: "Final photo 2" },
+    { src: "photos/final/4-3.HEIC", fallback: "photos/final/4-4.JPG", alt: "Final photo 3" },
+    { src: "photos/final/4-4.JPG", alt: "Final photo 4" },
+    { src: "photos/final/4-5.JPG", alt: "Final photo 5" }
+  ],
 
-  // 最後祝福頁的段落，每一個字串會顯示成一段文字。
+  // Each item becomes a paragraph on the final message screen.
   letter: [
-    "新的工作，從今天開始。",
-    "不需要急著做到完美；把眼前的一步走好，就已經很了不起。",
-    "願妳在忙碌的日子裡，依然保有自己的步調，也別忘了：妳真的很棒！"
+    "最後想跟你說：",
+    "到了新環境有壓力或被唸是難免的，但誰又不是從中得到經驗值得哩",
+    "所以願妳在忙碌的日子裡，依然保有純真、可愛的自己，也要記住了：妳真的很棒了！"
   ]
 };

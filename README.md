@@ -1,18 +1,19 @@
-# 第一天的冒險
+# Project Structure
 
-## 最常修改的內容
+- index.html: Page structure and visible fallback text.
+- styles.css: All visual styles and responsive layout rules.
+- script.js: Canvas game logic and input handling.
+- content.js: Editable visible text, stage targets, and gameplay pacing.
+- photos/: Reserved for future image assets.
 
-請開啟 content.js，可以修改：
+## Common Changes
 
-- 所有畫面文字與按鈕文字
-- 每一關的目標數量
-- 三關完成後的照片、標題與短訊息
-- 最後的兩張照片與祝福信
+Edit content.js to update:
 
-## 照片位置
+- Opening dialog text
+- Button labels and stage messages
+- Collection targets
+- Item spawn rate and falling speed
+- Hazard freeze duration
 
-照片請放進 assets/photos/。需要的檔名請看 assets/photos/README.md。
-
-## 預覽方式
-
-直接用瀏覽器開啟 index.html 即可。
+Open index.html in a browser to preview the game.
