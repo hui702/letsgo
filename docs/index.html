@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff4f6">
+  <title>給俞瑄的驚喜｜Luana</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Noto+Sans+TC:wght@400;500;700;900&family=Caveat:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/letter.css">
+</head>
+
+<body class="letter-page">
+  <div class="letter-confetti" id="letterConfetti" aria-hidden="true"></div>
+  <div class="letter-sky" aria-hidden="true">
+    <span>♡</span><span>✦</span><span>♪</span><span>♡</span><span>✧</span><span>♥</span><span>✦</span><span>♫</span>
+  </div>
+
+  <nav class="navbar cute-nav sticky-top">
+    <div class="container gap-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="./"><span
+          class="brand-icon">💌</span><strong>Birthday Studio</strong></a>
+      <div class="page-nav" aria-label="網站頁面">
+        <a class="active" href="./" aria-current="page"><i
+            class="bi bi-envelope-heart-fill"></i><span>給妳的信</span></a>
+        <a href="music.html"><i class="bi bi-music-note-beamed"></i><span>音樂驚喜</span></a>
+      </div>
+      <span class="letter-nav-note d-none d-md-inline">只給 Luana ♡</span>
+    </div>
+  </nav>
+
+  <main>
+    <header class="letter-hero container text-center" id="hero">
+      <span class="letter-kicker">HAPPY BIRTHDAY · A LETTER FOR YOU</span>
+      <h1>To <em>Luana</em></h1>
+      <p class="hero-sub">這封信是專屬給你的</p>
+
+      <button class="envelope" id="envelope" type="button" aria-controls="letter" aria-label="拆開信封">
+        <span class="env-back"></span>
+        <span class="env-card"><small>to</small><b>Luana</b><i>♡</i></span>
+        <span class="env-pocket"></span>
+        <span class="env-flap"></span>
+        <span class="env-seal">♥</span>
+      </button>
+      <span class="envelope-hint" id="envelopeHint"><i class="bi bi-hand-index-thumb"></i> 點一下信封</span>
+    </header>
+
+    <div class="after-envelope" id="afterEnvelope">
+      <section class="container letter-section" id="letter">
+        <article class="paper-letter">
+          <span class="paper-tape" aria-hidden="true"></span>
+          <span class="paper-stamp" aria-hidden="true"><span>🎂</span></span>
+          <span class="paper-date">HAPPY BIRTHDAY!</span>
+          <h2 data-reveal>Dear Luana,</h2>
+          
+          <p data-reveal>生日快樂🎂！今天是你生日的正日喔!! 很抱歉真的沒辦法跟你在正日去吃個飯好好的慶祝一下🥲，但是正日該有的活動還是不能錯過ㄚㄚㄚ</p>
+          
+          <p data-reveal>真的很開心你在環島的時候答應我，如果再早一點，我也不確定有沒有辦法好好的照顧你、接住你，就連現在有時也覺得我會不會沒有顧慮到你的心情，你上班的不開心，沒辦法好好的聽你分享、逗你開心，像這週連生日晚上都沒辦法跟你吃個飯，也會擔心你會不會多想，或是不開心?</p>
+          
+          <p data-reveal>這也是我第一次以這個身分祝福你生日快樂!! 我覺得就像你祝福我報告順利裡面說的一樣(我會期待喔😗)，我們都還有好多需要努力學習的地方，你在裡面寫你需要努力常用言語跟行動表達，而我呢?也想要好好的學習理解你跟接住你的情緒，然後聽你分享生活的大小事，所以也做了這個驚喜給你，喜望你會喜歡</p>
+          
+          <p data-reveal>這次呢!!有兩個驚喜，一個是我做的玩具，另一個呢~是我要送你的禮物，但是你要自己猜出來是甚麼東西，我底下有放三個線索給你，你要慢慢刮開它們，猜猜真正的禮物是什麼吧！</p>
+          
+          <div class="letter-signature" data-reveal><small>With all my love,</small><strong>Savio ♡</strong>
+          </div>
+        </article>
+        <a class="scroll-cue" href="#gift-hints"><span>往下還有驚喜</span><i class="bi bi-chevron-double-down"></i></a>
+      </section>
+
+      <section class="container scratch-section" id="gift-hints">
+        <div class="scratch-heading text-center">
+          <span class="letter-kicker">ONE MORE SURPRISE</span>
+          <h2>刮開你的提示吧!</h2>
+          <p>用滑鼠點擊卡片，揭曉禮物線索。</p>
+          <div class="scratch-progress" aria-label="刮刮樂進度">
+            <i class="active"
+              data-progress="0"></i><i class=""
+              data-progress="1"></i><i class=""
+              data-progress="2"></i>
+            <span id="progressText">0 / 3</span>
+          </div>
+        </div>
+
+        <div class="scratch-grid">
+          
+          <article class="scratch-card " data-scratch-card
+            data-index="0">
+            <div class="hint-content">
+              <span>CLUE 01</span>
+              <div class="hint-icon">✨</div>
+              <p>是一個容器</p>
+            </div>
+            <canvas class="scratch-layer" aria-label="刮開第 1 個提示"></canvas>
+            <div class="lock-layer"><i class="bi bi-lock-fill"></i><span>先刮開上一張</span></div>
+            <button class="scratch-fallback" type="button">刮不動？直接揭曉</button>
+          </article>
+          
+          <article class="scratch-card locked" data-scratch-card
+            data-index="1">
+            <div class="hint-content">
+              <span>CLUE 02</span>
+              <div class="hint-icon">🎀</div>
+              <p>你以前有問過我這是幹嘛的</p>
+            </div>
+            <canvas class="scratch-layer" aria-label="刮開第 2 個提示"></canvas>
+            <div class="lock-layer"><i class="bi bi-lock-fill"></i><span>先刮開上一張</span></div>
+            <button class="scratch-fallback" type="button">刮不動？直接揭曉</button>
+          </article>
+          
+          <article class="scratch-card locked" data-scratch-card
+            data-index="2">
+            <div class="hint-content">
+              <span>CLUE 03</span>
+              <div class="hint-icon">🎁</div>
+              <p>他在一個你看的到摸的到的地方</p>
+            </div>
+            <canvas class="scratch-layer" aria-label="刮開第 3 個提示"></canvas>
+            <div class="lock-layer"><i class="bi bi-lock-fill"></i><span>先刮開上一張</span></div>
+            <button class="scratch-fallback" type="button">刮不動？直接揭曉</button>
+          </article>
+          
+        </div>
+
+        <div class="finale" id="finale" role="status" aria-live="polite">
+          <div class="finale-card">
+            <span class="finale-emoji">🎉</span>
+            <h3>三個提示都找到啦！</h3>
+            <p>現在來猜猜看，真正的禮物是什麼？<br>猜到了就來跟我說 ♡</p>
+
+            <div class="finale-actions">
+              <a class="pill-button" href="music.html"><i class="bi bi-music-note-beamed"></i> 去玩音樂驚喜</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center"><span>Made with 💗 especially for Luana</span></footer>
+    </div>
+  </main>
+
+  <script src="static/js/letter.js"></script>
+</body>
+
+</html>

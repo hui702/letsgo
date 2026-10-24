@@ -1,0 +1,154 @@
+/* ============================================================
+   情書首頁
+   ============================================================ */
+.letter-page{
+  --rose:#e2577f;--rose-deep:#c53d68;--blush:#ffd3df;--cream:#fffaf2;--gold:#f1b94f;
+  --ink:#4a3640;--muted:#8f7884;
+  background:
+    radial-gradient(circle at 10% 14%,rgba(255,224,160,.55) 0 7%,transparent 7.3%),
+    radial-gradient(circle at 90% 22%,rgba(226,210,255,.6) 0 9%,transparent 9.3%),
+    radial-gradient(circle at 80% 78%,rgba(255,205,220,.45) 0 12%,transparent 12.3%),
+    linear-gradient(180deg,#fff4f6 0%,#fffcf6 50%,#fff1f5 100%);
+  background-attachment:fixed;
+}
+.letter-nav-note{margin-left:auto;color:#9b8492;font:500 .72rem "Kiwi Maru",serif}
+
+/* 背景漂浮小符號 */
+.letter-sky{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.letter-sky span{position:absolute;color:#f0a6c0;font:500 2rem "Kiwi Maru",serif;opacity:.45;animation:letterFloat 7s ease-in-out infinite}
+.letter-sky span:nth-child(1){top:16%;left:6%}
+.letter-sky span:nth-child(2){top:30%;right:8%;color:#d9be6a;animation-delay:-1s;font-size:1.5rem}
+.letter-sky span:nth-child(3){top:62%;left:4%;color:#9fd6cb;animation-delay:-2s}
+.letter-sky span:nth-child(4){top:82%;right:6%;color:#b19ee0;animation-delay:-3s}
+.letter-sky span:nth-child(5){top:48%;left:46%;color:#f5c5d3;animation-delay:-4s;font-size:1.2rem}
+.letter-sky span:nth-child(6){top:8%;right:28%;color:#f3b0c4;animation-delay:-5s;font-size:1.3rem}
+.letter-sky span:nth-child(7){top:90%;left:22%;color:#e2c46f;animation-delay:-2.5s;font-size:1.4rem}
+.letter-sky span:nth-child(8){top:70%;right:24%;color:#a6cfe6;animation-delay:-6s;font-size:1.6rem}
+
+.letter-kicker{display:inline-block;color:var(--rose);font-size:.68rem;font-weight:900;letter-spacing:.2em}
+
+/* ---------- Hero 與信封 ---------- */
+.letter-hero{min-height:calc(100vh - 66px);min-height:calc(100svh - 66px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:3rem;padding-bottom:4rem}
+.letter-hero h1{margin:.7rem 0 .5rem;font-size:clamp(2.8rem,9vw,6.4rem);line-height:1.05}
+.letter-hero h1 em{color:var(--rose);font-style:normal}
+.hero-sub{max-width:510px;margin:0;color:var(--muted);line-height:1.9}
+
+.envelope{position:relative;display:block;width:min(300px,76vw);aspect-ratio:3/2;margin:clamp(8rem,17vh,9.5rem) auto 1.1rem;padding:0;border:0;background:none;perspective:900px;cursor:pointer;filter:drop-shadow(0 20px 26px rgba(190,70,110,.22));animation:envelopeBob 3s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.envelope:focus-visible{outline:3px dashed var(--rose);outline-offset:10px;border-radius:12px}
+.envelope>span{position:absolute;display:block}
+.env-back{inset:0;border-radius:12px;background:#f394b0}
+.env-card{left:7%;right:7%;top:7%;bottom:6%;z-index:2;display:flex!important;flex-direction:column;align-items:center;padding-top:9%;border-radius:8px;background:var(--cream);box-shadow:0 2px 6px rgba(120,60,80,.12);transition:transform .8s cubic-bezier(.25,1.3,.4,1) .35s}
+.env-card small{color:var(--muted);font:700 1.15rem "Caveat",cursive}
+.env-card b{color:var(--ink);font:500 clamp(1rem,4.6vw,1.35rem) "Kiwi Maru",serif}
+.env-card i{color:var(--rose);font-style:normal;font-size:1rem}
+.env-pocket{inset:0;z-index:3;border-radius:12px;background:linear-gradient(170deg,#ff9cb9,#f27ea1);clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%)}
+.env-flap{left:0;right:0;top:0;height:58%;z-index:4;border-radius:12px 12px 0 0;background:linear-gradient(180deg,#ffc2d3,#ffaec5);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .55s ease,z-index 0s .27s}
+.env-seal{left:50%;top:58%;z-index:5;display:grid!important;place-items:center;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;color:#fff;background:radial-gradient(circle at 35% 30%,#ef6e94,#c93a66);box-shadow:0 3px 0 #a92d55,0 0 0 4px rgba(255,255,255,.35);font-size:1.15rem;transition:transform .35s,opacity .3s}
+.envelope:not(.open):hover .env-flap{transform:rotateX(28deg)}
+.envelope:not(.open):hover .env-seal{transform:scale(1.08) rotate(-8deg)}
+.envelope.open{animation:none;cursor:default}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .env-seal{opacity:0;transform:scale(.3)}
+.envelope.open .env-card{transform:translateY(-58%)}
+.envelope-hint{display:inline-flex;align-items:center;gap:.35rem;color:var(--rose);font-size:.78rem;font-weight:800;animation:hintPulse 1.8s ease-in-out infinite;transition:opacity .3s}
+.envelope-hint.gone{opacity:0}
+
+/* ---------- 信紙 ---------- */
+.letter-section{padding-top:3rem;padding-bottom:4rem;scroll-margin-top:60px}
+.paper-letter{position:relative;max-width:740px;margin:auto;padding:clamp(2.6rem,7vw,4.8rem) clamp(1.6rem,7vw,4.6rem);border:1px solid #f2e0d4;border-radius:6px;background:repeating-linear-gradient(var(--cream) 0,var(--cream) 37px,#f3e9e4 38px);box-shadow:0 28px 70px rgba(112,67,82,.15);transform:rotate(.35deg)}
+.paper-letter:before{content:"";position:absolute;inset:14px;border:2px solid rgba(235,114,150,.13);border-radius:3px;pointer-events:none}
+.paper-tape{position:absolute;top:-17px;left:50%;width:110px;height:34px;background:rgba(255,217,104,.7);transform:translateX(-50%) rotate(-2deg)}
+.paper-stamp{position:absolute;top:26px;right:26px;width:58px;height:68px;padding:4px;background:#fff;transform:rotate(5deg);box-shadow:0 2px 6px rgba(120,60,80,.15);
+  -webkit-mask:radial-gradient(circle 4px at 4px 4px,transparent 98%,#000) -4px -4px/8px 8px;mask:radial-gradient(circle 4px at 4px 4px,transparent 98%,#000) -4px -4px/8px 8px}
+.paper-stamp span{display:grid;place-items:center;width:100%;height:100%;background:#ffe3ea;font-size:1.6rem}
+.paper-date{display:block;color:#d37b98;font-size:.64rem;font-weight:900;letter-spacing:.18em}
+.paper-letter h2{margin:1.8rem 0 1.6rem;color:#5b4552;font:700 clamp(2rem,6vw,2.9rem) "Caveat","Kiwi Maru",cursive}
+.paper-letter p{margin-bottom:1.35rem;color:#6e5965;font:400 clamp(1rem,2.1vw,1.1rem)/2.15 "Kiwi Maru",serif}
+.letter-signature{display:flex;flex-direction:column;align-items:flex-end;margin-top:2.6rem;color:#d6537f;font-family:"Kiwi Maru",serif}
+.letter-signature small{color:#9b8490;font:700 1.25rem "Caveat",cursive}
+.letter-signature strong{font-size:1.12rem;font-weight:500}
+.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:.1rem;width:max-content;margin:3rem auto 0;color:var(--muted);font-size:.75rem;font-weight:700;text-decoration:none}
+.scroll-cue i{color:var(--rose);font-size:1.2rem;animation:cueBounce 1.6s ease-in-out infinite}
+.scroll-cue:hover{color:var(--rose)}
+
+/* 逐段浮現：只在 JS 可用時才先隱藏 */
+.js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.js [data-reveal].is-visible{opacity:1;transform:none}
+
+/* ---------- 刮刮樂 ---------- */
+.scratch-section{padding-top:3rem;padding-bottom:5rem;scroll-margin-top:60px}
+.scratch-heading{max-width:620px;margin:0 auto 2.4rem}
+.scratch-heading h2{margin:.65rem 0;font:500 clamp(2rem,6vw,3.2rem) "Kiwi Maru",serif}
+.scratch-heading p{color:var(--muted);line-height:1.8}
+.scratch-progress{display:flex;align-items:center;justify-content:center;gap:.55rem;margin-top:1.1rem}
+.scratch-progress i{width:11px;height:11px;border-radius:50%;background:#e9dfe3;transition:.35s}
+.scratch-progress i.active{width:30px;border-radius:10px;background:var(--rose)}
+.scratch-progress i.done{width:11px;background:#77cbb7}
+.scratch-progress span{margin-left:.35rem;color:var(--muted);font-size:.72rem;font-weight:800;font-variant-numeric:tabular-nums}
+
+.scratch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;max-width:1080px;margin:auto}
+.scratch-card{position:relative;min-height:290px;border:7px solid #fff;border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(109,64,80,.13);isolation:isolate;transition:transform .3s,box-shadow .3s}
+.scratch-card:not(.locked):not(.revealed){box-shadow:0 0 0 3px rgba(226,87,127,.22),0 18px 40px rgba(109,64,80,.16)}
+.scratch-card:not(.locked):not(.revealed):hover{transform:translateY(-3px)}
+.hint-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.6rem;text-align:center;background:linear-gradient(145deg,#fff3f7,#fffaf0)}
+.js .scratch-card:not(.cover-ready):not(.revealed) .hint-content{visibility:hidden}
+.hint-content>span{color:#d85c85;font-size:.61rem;font-weight:900;letter-spacing:.18em}
+.hint-icon{margin:.8rem 0;font-size:2.8rem}
+.scratch-card.revealed .hint-icon{animation:iconPop .7s cubic-bezier(.2,1.6,.5,1)}
+.hint-content p{margin:0;color:#5b4953;font:500 .98rem/1.8 "Kiwi Maru",serif}
+.scratch-layer{position:absolute;z-index:2;inset:0;width:100%;height:100%;touch-action:none;cursor:grab;transition:opacity .45s}
+.scratch-layer:active{cursor:grabbing}
+.scratch-card.revealed .scratch-layer{opacity:0;pointer-events:none}
+.lock-layer{position:absolute;z-index:4;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;color:#fff;background:rgba(79,63,73,.72);backdrop-filter:blur(6px);font-size:.78rem;font-weight:700}
+.lock-layer i{font-size:1.5rem}
+.scratch-card.locked .lock-layer{display:flex}
+.scratch-card.unlocking .lock-layer{display:flex;animation:unlockFade .5s ease forwards}
+.scratch-card.revealed{animation:cardReveal .6s cubic-bezier(.2,1.4,.5,1)}
+.scratch-card.no-anim,.scratch-card.no-anim .hint-icon{animation:none}
+.scratch-fallback{position:absolute;z-index:3;left:50%;bottom:12px;transform:translateX(-50%);padding:.3rem .75rem;border:1px solid rgba(255,255,255,.6);border-radius:999px;color:#fff;background:rgba(72,57,64,.38);font-size:.6rem;font-weight:700;white-space:nowrap;backdrop-filter:blur(4px);opacity:.75;transition:opacity .2s}
+.scratch-fallback:hover{opacity:1}
+.scratch-card.locked .scratch-fallback,.scratch-card.revealed .scratch-fallback{display:none}
+
+/* ---------- 結尾 ---------- */
+.finale{display:none;max-width:620px;margin:2.6rem auto 0}
+.finale.show{display:block;animation:cardReveal .7s cubic-bezier(.2,1.4,.5,1)}
+.finale-card{padding:2rem clamp(1.2rem,5vw,2.4rem);border:2px dashed #f2a5bd;border-radius:26px;background:rgba(255,255,255,.88);text-align:center;box-shadow:0 14px 32px rgba(130,72,92,.12)}
+.finale-emoji{display:block;font-size:2.6rem;animation:iconPop .8s cubic-bezier(.2,1.6,.5,1)}
+.finale-card h3{margin:.4rem 0;font:500 1.6rem "Kiwi Maru",serif}
+.finale-card>p{color:var(--muted);line-height:1.8}
+.finale-actions{margin-top:1.2rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem}
+.pill-button{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.25rem;border:0;border-radius:999px;color:#fff;background:var(--rose);font-size:.82rem;font-weight:900;text-decoration:none;box-shadow:0 6px 0 var(--rose-deep);transition:transform .15s,box-shadow .15s}
+.pill-button:hover{color:#fff;transform:translateY(-2px);box-shadow:0 8px 0 var(--rose-deep)}
+.pill-button:active{transform:translateY(4px);box-shadow:0 2px 0 var(--rose-deep)}
+
+/* 信封拆開之前，信與刮刮樂都不存在，往下滑也看不到 */
+.js .letter-page:not(.unsealed) .after-envelope{display:none}
+.letter-page.unsealed .after-envelope{animation:afterFade .6s ease}
+@keyframes afterFade{from{opacity:0}}
+
+.letter-confetti{position:fixed;z-index:80;inset:0;pointer-events:none;overflow:hidden}
+.letter-confetti span{position:absolute;top:-30px;font-size:var(--size,1rem);animation:letterConfetti var(--duration) ease-in forwards}
+
+@keyframes envelopeBob{50%{transform:translateY(-8px) rotate(-1.5deg)}}
+@keyframes letterFloat{50%{transform:translateY(-16px) rotate(12deg)}}
+@keyframes hintPulse{50%{opacity:.45}}
+@keyframes cueBounce{50%{transform:translateY(5px)}}
+@keyframes cardReveal{from{transform:scale(.93);opacity:.4}to{transform:scale(1);opacity:1}}
+@keyframes iconPop{0%{transform:scale(.2) rotate(-25deg)}100%{transform:scale(1)}}
+@keyframes unlockFade{to{opacity:0;visibility:hidden}}
+@keyframes letterConfetti{to{transform:translate(var(--drift),110vh) rotate(720deg);opacity:.15}}
+
+@media(max-width:767px){
+  .letter-page .navbar>.container{justify-content:center}
+  .letter-page .navbar-brand{display:none!important}
+  .letter-nav-note{display:none}
+  .letter-hero{min-height:calc(100svh - 58px);padding-top:1.5rem}
+  .scratch-grid{grid-template-columns:1fr;max-width:400px}
+  .scratch-card{min-height:240px}
+  .paper-stamp{top:18px;right:18px;width:46px;height:54px}
+  .paper-stamp span{font-size:1.25rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .envelope,.letter-sky span,.envelope-hint,.scroll-cue i{animation:none}
+  .js [data-reveal]{transition:none}
+}
